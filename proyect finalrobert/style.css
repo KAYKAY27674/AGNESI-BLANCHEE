@@ -1,0 +1,140 @@
+/* ======== BASE ======== */
+body {
+    margin: 0;
+    background-color: #f4ecd8;
+    font-family: 'Playfair Display', serif;
+    color: #3d2f1b;
+}
+
+/* ======== HEADER ======== */
+.header {
+    background: #d7c4a3;
+    color: #3d2f1b;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #8b7153;
+}
+
+.logo {
+    font-size: 28px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+}
+
+.navbar a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #3d2f1b;
+    font-weight: 600;
+}
+
+/* ======== HERO ======== */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: url('https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1400&q=80') no-repeat center/cover;
+    color: white;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.hero .btn {
+    background: #d7c4a3;
+    padding: 12px 25px;
+    color: #3d2f1b;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+/* ======== PRODUCTOS ======== */
+.productos {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border: 3px solid #8b7153;
+    border-radius: 12px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.btn-card {
+    background: #d7c4a3;
+    border: none;
+    padding: 12px;
+    margin-top: 10px;
+    font-weight: bold;
+    width: 100%;
+    border-radius: 6px;
+}
+
+/* ======== CHATBOT ======== */
+.chatbot-container {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 330px;
+    background: #fff;
+    border: 3px solid #8b7153;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #d7c4a3;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.chatbox {
+    height: 250px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.chat-input-area {
+    display: flex;
+    border-top: 2px solid #d7c4a3;
+}
+
+.chat-input-area input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+}
+
+.chat-input-area button {
+    background: #d7c4a3;
+    border: none;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+/* ======== FOOTER ======== */
+.footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 60px;
+    background: #d7c4a3;
+    border-top: 4px solid #8b7153;
+}

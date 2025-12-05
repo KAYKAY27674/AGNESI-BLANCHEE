@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Agnesi Blanche — Perlas Cultivadas Excepcionales</title>
+
+<!-- Fuentes -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ================== THEME / VARS ================== */
+  :root{
+    --arena:#f7efe6;
+    --dorado:#bfa47c;
+    --dorado-2:#c9ad78;
+    --marron:#7a5b3b;
+    --texto:#3a2e2e;
+    --blanco:#ffffff;
+    --soft-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+  /* ====== BASE ====== */
+  *{box-sizing:border-box}
+  html,body{height:100%;font-family:'Playfair Display',serif;margin:0;color:var(--texto);background:var(--arena);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  button{cursor:pointer;font-family:inherit}
+
+  /* ====== HEADER ====== */
+  header{position:sticky;top:0;z-index:999;background:rgba(255,255,255,0.90);backdrop-filter:blur(6px);border-bottom:1px solid rgba(122,91,59,0.06)}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:56px;object-fit:contain}
+  .brand h1{font-family:'Cinzel',serif;margin:0;font-size:20px;color:var(--marron);letter-spacing:1px}
+  nav.main-nav{display:flex;gap:14px;align-items:center}
+  nav.main-nav a{padding:8px 12px;border-radius:8px;font-weight:600;color:var(--texto);transition:.18s all}
+  nav.main-nav a:hover{background:linear-gradient(90deg,var(--dorado),var(--dorado-2));color:#fff;transform:translateY(-2px)}
+  /* logo esquina */
+  .logo-esquina{position:fixed;top:12px;left:18px;height:54px;z-index:1000;pointer-events:none}
+
+  /* ====== HERO ====== */
+  .hero{height:66vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px;background-image:linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.95)), url('mar.jpg');background-size:cover;background-position:center}
+  .hero h2{font-family:'Cinzel',serif;font-size:44px;color:var(--marron);margin:0 0 12px;text-shadow:0 6px 18px rgba(0,0,0,0.08)}
+  .hero p{max-width:900px;margin:0 auto 18px;font-size:1.05rem;color:#3a2e2e}
+  .hero .cta{display:inline-block;background:linear-gradient(180deg,var(--dorado),var(--dorado-2));padding:12px 22px;border-radius:999px;color:white;font-weight:700;box-shadow:0 8px 30px rgba(191,164,124,0.18)}
+
+  /* ====== CAROUSEL ====== */
+  .carousel-wrap{max-width:1200px;margin:26px auto;padding:0 20px;position:relative}
+  .carousel{overflow:hidden;border-radius:14px;box-shadow:var(--soft-shadow)}
+  .slides{display:flex;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+  .slide{flex:0 0 100%;min-height:420px;display:flex;align-items:center;justify-content:center;background:#000}
+  .slide img,.slide video{width:100%;height:520px;object-fit:cover;display:block;border-radius:0}
+  .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.92);border:0;padding:10px 14px;border-radius:50%;font-size:22px;color:var(--marron);box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+  .carousel-btn:hover{background:var(--dorado);color:#fff}
+  .carousel-btn.prev{left:14px}
+  .carousel-btn.next{right:14px}
+  .carousel-indicators{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;display:flex;gap:8px}
+  .carousel-indicators button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(255,255,255,0.6);opacity:.9}
+  .carousel-indicators button.active{background:var(--marron);transform:scale(1.1)}
+
+  /* ====== PAGE SECTIONS (max 10 pages) ====== */
+  section.page{padding:56px 20px}
+  h3.section-title{font-family:'Cinzel',serif;color:var(--dorado);font-size:26px;margin:0 0 18px;text-align:center}
+
+  /* ====== CATALOG / FILTERS / PAGINATION ====== */
+  .catalog-controls{display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:18px;flex-wrap:wrap}
+  .filter-btn{padding:8px 12px;border-radius:8px;border:1px solid rgba(122,91,59,0.12);background:#fff}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1200px;margin:0 auto}
+  .product{background:#fff;border-radius:12px;padding:14px;border:2px solid rgba(122,91,59,0.06);box-shadow:0 10px 30px rgba(0,0,0,0.05);display:flex;flex-direction:column;transition:transform .25s}
+  .product:hover{transform:translateY(-8px)}
+  .product img{width:100%;height:260px;object-fit:cover;border-radius:8px}
+  .product h4{font-family:'Cinzel',serif;margin:10px 0 6px;color:var(--marron);font-size:18px}
+  .product p.price{color:var(--dorado);font-weight:700;margin:2px 0 10px}
+  .product .actions{margin-top:auto;display:flex;gap:8px}
+  .btn{background:linear-gradient(180deg,var(--dorado),var(--dorado-2));color:#fff;padding:10px;border-radius:8px;border:0;font-weight:700;flex:1}
+  .btn.secondary{background:#fff;border:1px solid rgba(122,91,59,0.12);color:var(--marron);font-weight:700}
+  .pagination{display:flex;gap:8px;justify-content:center;margin-top:20px}
+
+  /* ====== CART PANEL ====== */
+  .top-actions{display:flex;gap:12px;align-items:center}
+  .cart-btn{position:relative;background:transparent;border:0;font-size:22px}
+  .cart-count{position:absolute;top:-6px;right:-6px;background:var(--dorado);color:#fff;padding:4px 7px;border-radius:10px;font-size:12px}
+  .cart-panel{position:fixed;right:18px;top:80px;width:360px;background:#fff;border-radius:12px;border:2px solid rgba(122,91,59,0.08);box-shadow:0 22px 60px rgba(0,0,0,0.12);padding:12px;z-index:1000;display:none}
+  .cart-item{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+  .cart-item img{width:56px;height:56px;object-fit:cover;border-radius:8px}
+  .cart-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+
+  /* ====== CHATBOT ====== */
+  .chat-toggle{position:fixed;right:20px;bottom:20px;width:64px;height:64px;border-radius:50%;background:linear-gradient(180deg,var(--dorado),var(--dorado-2));color:#fff;font-size:26px;border:0;z-index:1200;box-shadow:0 14px 40px rgba(0,0,0,0.25)}
+  .chat-window{position:fixed;right:20px;bottom:100px;width:360px;background:#fff;border-radius:12px;border:2px solid rgba(122,91,59,0.08);box-shadow:0 18px 60px rgba(0,0,0,0.14);display:none;flex-direction:column;z-index:1200}
+  .chat-header{background:linear-gradient(90deg,var(--dorado),var(--dorado-2));color:#fff;padding:12px;border-radius:10px 10px 0 0;text-align:center;font-weight:700}
+  .chat-body{padding:12px;height:260px;overflow-y:auto}
+  .chat-input{display:flex;border-top:1px solid rgba(0,0,0,0.04)}
+  .chat-input input{flex:1;padding:10px;border:0}
+  .chat-input button{padding:10px;border:0;background:var(--marron);color:#fff;width:90px;font-weight:700}
+
+  /* ====== PROMO VIDEO (extra) ====== */
+  .promo-section{max-width:1100px;margin:26px auto;padding:18px;background:#fff;border-radius:12px;box-shadow:var(--soft-shadow);text-align:center}
+  .promo-section video{width:100%;height:480px;object-fit:cover;border-radius:10px}
+
+  /* ====== FOOTER ====== */
+  footer{margin-top:44px;padding:30px 20px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.9));border-top:1px solid rgba(122,91,59,0.06)}
+
+  /* ====== RESPONSIVE ====== */
+  @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)} .slide img,.slide video{height:420px}}
+  @media(max-width:720px){nav.main-nav{display:none}.grid{grid-template-columns:1fr}.hero{padding:40px 12px}.carousel-btn{display:none}.carousel-indicators{display:none}.chat-window{right:12px;left:12px;width:auto}.container{padding:0 16px}}
+</style>
+</head>
+
+<body>
+
+  <!-- ========== LOGO (esquina superior izquierda) - intenta cargar `logoo.jpg`; si falla muestra SVG fallback ========== -->
+  <img id="logoImgCorner" class="logo-esquina" src="logoo.jpg" alt="Agnesi Blanche - logo" style="position:fixed;top:12px;left:12px;height:50px;z-index:1000;pointer-events:auto;object-fit:contain" onerror="this.style.display='none';document.getElementById('logoFallbackCorner').style.display='inline-block'">
+  <svg id="logoFallbackCorner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Agnesi Blanche - logo (fallback)" style="position:fixed;top:12px;left:12px;height:50px;z-index:1000;display:none">
+    <rect width="100" height="100" rx="18" fill="#bfa47c" />
+    <text x="50" y="60" text-anchor="middle" font-family="Cinzel, serif" font-size="42" fill="#fff">AB</text>
+  </svg>
+
+  <!-- ========== HEADER / NAV ========== -->
+  <header>
+    <h1 style="position:fixed;top:12px;right:18px;z-index:999;font-size:20px;margin:0;color:var(--marron);letter-spacing:1px">Agnesi Blanche</h1>
+    <div class="container topbar" role="navigation" aria-label="Main navigation">
+      <div class="brand" aria-hidden="true" style="visibility:hidden"></div>
+
+      <div class="top-actions" style="align-items:center">
+        <nav class="main-nav" aria-label="Secciones">
+          <a href="#inicio">Inicio</a>
+          <a href="#colecciones">Colecciones</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#clientes">Clientes</a>
+          <a href="#proveedores">Proveedores</a>
+          <a href="#agentes">Agentes</a>
+          <a href="#compras">Compras</a>
+          <a href="#historial">Historial</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#sobre">Sobre</a>
+        </nav>
+
+        <button class="cart-btn" id="cartToggle" title="Ver carrito" aria-label="Mostrar carrito">🛒 <span class="cart-count" id="cartCount">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+<section id="inicio" class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Agnesi Blanche – Donde las perlas cuentan historias</h1>
+        <p class="hero-subtitle">Belleza eterna, elegancia incomparable.</p>
+
+        <!-- BOTÓN DEL VIDEO PROMOCIONAL -->
+        <a href="videoo/promo.mp4" 
+           target="_blank" 
+           style="
+               display:inline-block;
+               background-color:#b08968;
+               color:white;
+               padding:12px 25px;
+               border-radius:8px;
+               text-decoration:none;
+               font-weight:bold;
+               font-size:18px;
+               margin-top:20px;
+               box-shadow:0 4px 10px rgba(0,0,0,0.2);
+               transition:0.3s;
+           "
+           onmouseover="this.style.backgroundColor='#a67854'"
+           onmouseout="this.style.backgroundColor='#b08968'">
+            🎥 Ver Video Promocional
+        </a>
+        <!-- FIN -->
+
+    </div>
+</section>
+
+  <!-- ======= (Si quieres un carrusel, hay un contenedor básico aquí) ======= -->
+  <div class="carousel-wrap container" aria-hidden="true" style="margin-top:18px">
+    <div class="carousel" id="mainCarousel" role="region" aria-label="Carrusel de imágenes">
+      <!-- Slides container -->
+      <div class="slides" id="slides">
+        <!-- Ejemplo de slides; puedes reemplazar src con tus archivos -->
+        <div class="slide"><img src="AGNESI1.webp" alt="Slide 1"></div>
+        <div class="slide"><img src="agnesi.webp" alt="Slide 2"></div>
+        <div class="slide"><img src="agnesi2.webp" alt="Slide 3"></div>
+        <!-- slide de video eliminado para dejar solo 3 slides -->
+      </div>
+    </div>
+
+      <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">❮</button>
+      <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">❯</button>
+
+      <div class="carousel-indicators" id="indicators" aria-hidden="true"></div>
+  </div>
+
+  <!-- ========== COLECCIONES ========== -->
+  <section id="colecciones" class="page">
+    <div class="container">
+      <h3 class="section-title">Colecciones</h3>
+      <p style="text-align:center;max-width:900px;margin:0 auto 18px">Explora nuestras colecciones: Vintage Dorado, Edición Limitada, Plata & Temporada.</p>
+
+      <div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap">
+        <div style="width:260px;background:#fff;padding:18px;border-radius:12px;border:2px solid rgba(122,91,59,0.06)">
+          <h4 style="margin:0 0 8px;font-family:'Cinzel'">Vintage Dorado</h4>
+          <p style="margin:0">Piezas con baño dorado y perlas curadas con acabado clásico.</p>
+        </div>
+        <div style="width:260px;background:#fff;padding:18px;border-radius:12px;border:2px solid rgba(122,91,59,0.06)">
+          <h4 style="margin:0 0 8px;font-family:'Cinzel'">Edición Limitada</h4>
+          <p style="margin:0">Piezas numeradas y exclusivas para coleccionistas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CATALOGO (filtros, búsqueda y paginación) ========== -->
+  <section id="catalogo" class="page">
+    <div class="container">
+      <h3 class="section-title">Catálogo Exclusivo</h3>
+
+      <div class="catalog-controls" role="search" aria-label="Controles de catálogo">
+        <div>
+          <label>Buscar: <input id="searchInput" type="search" placeholder="Nombre o precio" aria-label="Buscar producto"></label>
+        </div>
+        <div>
+          <button class="filter-btn" data-cat="all" onclick="filterCategory('all')">Todos</button>
+          <button class="filter-btn" data-cat="Anillos" onclick="filterCategory('Anillos')">Anillos</button>
+          <button class="filter-btn" data-cat="Collares" onclick="filterCategory('Collares')">Collares</button>
+          <button class="filter-btn" data-cat="Pendientes" onclick="filterCategory('Pendientes')">Pendientes</button>
+          <button class="filter-btn" data-cat="Pulseras" onclick="filterCategory('Pulseras')">Pulseras</button>
+          <button class="filter-btn" data-cat="Accesorios" onclick="filterCategory('Accesorios')">Accesorios</button>
+        </div>
+      </div>
+
+      <div id="productsGrid" class="grid" role="list"></div>
+
+      <div id="pagination" class="pagination" aria-label="Paginación"></div>
+    </div>
+  </section>
+
+  <!-- ========== CLIENTES ========== -->
+  <section id="clientes" class="page">
+    <div class="container">
+      <h3 class="section-title">Gestión de Clientes</h3>
+      <div style="max-width:1100px;margin:0 auto">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+          <div style="background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+            <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--dorado)">📋 Registrar Cliente</h4>
+            <input type="text" id="clientName" placeholder="Nombre completo" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="email" id="clientEmail" placeholder="Email" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="tel" id="clientPhone" placeholder="Teléfono" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="text" id="clientAddress" placeholder="Dirección" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="text" id="clientCity" placeholder="Ciudad" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <button onclick="addClient()" style="width:100%;background:linear-gradient(180deg,var(--dorado),var(--dorado-2));color:#fff;padding:10px;border:0;border-radius:8px;font-weight:700;cursor:pointer">+ Agregar Cliente</button>
+          </div>
+          <div style="background:#f0ebe6;padding:20px;border-radius:10px;border:2px solid var(--dorado)">
+            <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--marron)">📊 Estadísticas</h4>
+            <div style="margin:12px 0"><strong>Total Clientes:</strong> <span id="totalClients" style="color:var(--dorado);font-size:18px;font-weight:700">0</span></div>
+            <div style="margin:12px 0"><strong>Activos:</strong> <span id="activeClients" style="color:var(--dorado);font-size:18px;font-weight:700">0</span></div>
+            <div style="margin:12px 0"><strong>Inactivos:</strong> <span id="inactiveClients" style="color:var(--dorado);font-size:18px;font-weight:700">0</span></div>
+            <div style="margin:12px 0"><strong>Última compra:</strong> <span id="lastClientPurchase" style="color:#999;font-size:12px">-</span></div>
+          </div>
+        </div>
+        <div style="background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+          <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--dorado)">👥 Lista de Clientes</h4>
+          <div style="overflow-x:auto">
+            <table id="clientTable" style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead>
+                <tr style="background:rgba(191,164,124,0.1);border-bottom:2px solid var(--dorado)">
+                  <th style="padding:10px;text-align:left;font-weight:700">Nombre</th>
+                  <th style="padding:10px;text-align:left;font-weight:700">Email</th>
+                  <th style="padding:10px;text-align:left;font-weight:700">Teléfono</th>
+                  <th style="padding:10px;text-align:left;font-weight:700">Ciudad</th>
+                  <th style="padding:10px;text-align:left;font-weight:700">Estado</th>
+                  <th style="padding:10px;text-align:center;font-weight:700">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="clientTableBody">
+                <tr><td colspan="6" style="padding:20px;text-align:center;color:#999">Cargando clientes...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROVEEDORES ========== -->
+  <section id="proveedores" class="page">
+    <div class="container">
+      <h3 class="section-title">Gestión de Proveedores</h3>
+      <div style="max-width:1100px;margin:0 auto">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+          <div style="background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+            <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--dorado)">🏢 Registrar Proveedor</h4>
+            <input type="text" id="supplierName" placeholder="Nombre empresa" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="email" id="supplierEmail" placeholder="Email contacto" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="tel" id="supplierPhone" placeholder="Teléfono" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="text" id="supplierProduct" placeholder="Producto/Servicio" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="number" id="supplierRating" placeholder="Calificación (1-5)" min="1" max="5" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <button onclick="addSupplier()" style="width:100%;background:linear-gradient(180deg,var(--dorado),var(--dorado-2));color:#fff;padding:10px;border:0;border-radius:8px;font-weight:700;cursor:pointer">+ Agregar Proveedor</button>
+          </div>
+          <div style="background:#f0ebe6;padding:20px;border-radius:10px;border:2px solid var(--dorado)">
+            <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--marron)">📊 Resumen</h4>
+            <div style="margin:12px 0"><strong>Total Proveedores:</strong> <span id="totalSuppliers" style="color:var(--dorado);font-size:18px;font-weight:700">0</span></div>
+            <div style="margin:12px 0"><strong>Calificación Promedio:</strong> <span id="avgSupplierRating" style="color:var(--dorado);font-size:18px;font-weight:700">0</span> ⭐</div>
+            <div style="margin:12px 0"><strong>Productos únicos:</strong> <span id="uniqueProducts" style="color:var(--dorado);font-size:18px;font-weight:700">0</span></div>
+            <div style="margin:12px 0"><strong>Estado:</strong> <span id="supplierStatus" style="color:#28a745;font-weight:700">● Activos</span></div>
+          </div>
+        </div>
+        <div style="background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+          <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--dorado)">🤝 Red de Proveedores</h4>
+          <div style="overflow-x:auto">
+            <table id="supplierTable" style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead>
+                <tr style="background:rgba(191,164,124,0.1);border-bottom:2px solid var(--dorado)">
+                  <th style="padding:10px;text-align:left;font-weight:700">Empresa</th>
+                  <th style="padding:10px;text-align:left;font-weight:700">Contacto</th>
+                  <th style="padding:10px;text-align:left;font-weight:700">Producto</th>
+                  <th style="padding:10px;text-align:center;font-weight:700">Calificación</th>
+                  <th style="padding:10px;text-align:center;font-weight:700">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="supplierTableBody">
+                <tr><td colspan="5" style="padding:20px;text-align:center;color:#999">Cargando proveedores...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AGENTES ========== -->
+  <section id="agentes" class="page">
+    <div class="container">
+      <h3 class="section-title">Gestión de Agentes de Venta</h3>
+      <div style="max-width:1100px;margin:0 auto">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+          <div style="background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+            <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--dorado)">👔 Registrar Agente</h4>
+            <input type="text" id="agentName" placeholder="Nombre completo" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="email" id="agentEmail" placeholder="Email" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="tel" id="agentPhone" placeholder="Teléfono" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="number" id="agentCommission" placeholder="Comisión (%)" min="0" max="100" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="text" id="agentZone" placeholder="Zona asignada" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <button onclick="addAgent()" style="width:100%;background:linear-gradient(180deg,var(--dorado),var(--dorado-2));color:#fff;padding:10px;border:0;border-radius:8px;font-weight:700;cursor:pointer">+ Agregar Agente</button>
+          </div>
+          <div style="background:#f0ebe6;padding:20px;border-radius:10px;border:2px solid var(--dorado)">
+            <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--marron)">💰 Comisiones</h4>
+            <div style="margin:12px 0"><strong>Total Agentes:</strong> <span id="totalAgents" style="color:var(--dorado);font-size:18px;font-weight:700">0</span></div>
+            <div style="margin:12px 0"><strong>Comisión Promedio:</strong> <span id="avgCommission" style="color:var(--dorado);font-size:18px;font-weight:700">0%</span></div>
+            <div style="margin:12px 0"><strong>Total de ventas mes:</strong> <span id="totalSalesMonth" style="color:var(--dorado);font-size:18px;font-weight:700">$0</span></div>
+            <div style="margin:12px 0"><strong>Top Agente:</strong> <span id="topAgent" style="color:#28a745;font-weight:700">-</span></div>
+          </div>
+        </div>
+        <div style="background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+          <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--dorado)">👥 Equipo de Ventas</h4>
+          <div style="overflow-x:auto">
+            <table id="agentTable" style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead>
+                <tr style="background:rgba(191,164,124,0.1);border-bottom:2px solid var(--dorado)">
+                  <th style="padding:10px;text-align:left;font-weight:700">Nombre</th>
+                  <th style="padding:10px;text-align:left;font-weight:700">Email</th>
+                  <th style="padding:10px;text-align:left;font-weight:700">Zona</th>
+                  <th style="padding:10px;text-align:center;font-weight:700">Comisión</th>
+                  <th style="padding:10px;text-align:center;font-weight:700">Ventas mes</th>
+                  <th style="padding:10px;text-align:center;font-weight:700">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="agentTableBody">
+                <tr><td colspan="6" style="padding:20px;text-align:center;color:#999">Cargando agentes...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPRAS ========== -->
+  <section id="compras" class="page">
+    <div class="container">
+      <h3 class="section-title">Control de Compras y Stock</h3>
+      <div style="max-width:1100px;margin:0 auto">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+          <div style="background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+            <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--dorado)">📦 Nueva Compra</h4>
+            <input type="text" id="purchaseProvider" placeholder="Proveedor" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="text" id="purchaseProduct" placeholder="Producto" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="number" id="purchaseQuantity" placeholder="Cantidad" min="1" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="number" id="purchasePrice" placeholder="Precio unitario ($)" min="0" step="0.01" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <input type="date" id="purchaseDate" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-sizing:border-box">
+            <button onclick="addPurchase()" style="width:100%;background:linear-gradient(180deg,var(--dorado),var(--dorado-2));color:#fff;padding:10px;border:0;border-radius:8px;font-weight:700;cursor:pointer">+ Registrar Compra</button>
+          </div>
+          <div style="background:#f0ebe6;padding:20px;border-radius:10px;border:2px solid var(--dorado)">
+            <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--marron)">📊 Inventario</h4>
+            <div style="margin:12px 0"><strong>Total Compras:</strong> <span id="totalPurchases" style="color:var(--dorado);font-size:18px;font-weight:700">0</span></div>
+            <div style="margin:12px 0"><strong>Gasto Total:</strong> <span id="totalSpent" style="color:var(--dorado);font-size:18px;font-weight:700">$0</span></div>
+            <div style="margin:12px 0"><strong>Productos en stock:</strong> <span id="totalStock" style="color:var(--dorado);font-size:18px;font-weight:700">0 unidades</span></div>
+            <div style="margin:12px 0"><strong>Proveedor frecuente:</strong> <span id="topSupplier" style="color:#28a745;font-weight:700">-</span></div>
+          </div>
+        </div>
+        <div style="background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+          <h4 style="font-family:'Cinzel',serif;margin-top:0;color:var(--dorado)">🛍️ Historial de Compras</h4>
+          <div style="overflow-x:auto">
+            <table id="purchaseTable" style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead>
+                <tr style="background:rgba(191,164,124,0.1);border-bottom:2px solid var(--dorado)">
+                  <th style="padding:10px;text-align:left;font-weight:700">Proveedor</th>
+                  <th style="padding:10px;text-align:left;font-weight:700">Producto</th>
+                  <th style="padding:10px;text-align:center;font-weight:700">Cantidad</th>
+                  <th style="padding:10px;text-align:right;font-weight:700">Precio Unit.</th>
+                  <th style="padding:10px;text-align:right;font-weight:700">Total</th>
+                  <th style="padding:10px;text-align:left;font-weight:700">Fecha</th>
+                  <th style="padding:10px;text-align:center;font-weight:700">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="purchaseTableBody">
+                <tr><td colspan="7" style="padding:20px;text-align:center;color:#999">Cargando compras...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HISTORIAL ========== -->
+  <section id="historial" class="page">
+    <div class="container">
+      <h3 class="section-title">Historial</h3>
+      <p style="text-align:center">Historial de ventas y compras (a integrar con base de datos).</p>
+    </div>
+  </section>
+
+  <!-- ========== CONTACTO + MAPA DE TEHUACÁN ========== -->
+  <section id="contacto" class="page">
+    <div class="container">
+      <h3 class="section-title">Contacto</h3>
+      <p style="text-align:center;margin-bottom:24px"><strong>Email:</strong> contacto@agnesiblanche.com</p>
+
+      <!-- REDES SOCIALES -->
+      <div style="max-width:900px;margin:0 auto 24px;text-align:center">
+        <h4 style="font-family:'Cinzel',serif;color:var(--dorado);margin-bottom:16px">Síguenos en Redes Sociales</h4>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <a href="https://www.facebook.com/AgnesiBlanche" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#3b5998,#2d4373);color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.1)">
+            📘 Facebook
+          </a>
+          <a href="https://wa.me/5551234567" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#25d366,#1fa854);color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.1)">
+            💬 WhatsApp
+          </a>
+          <a href="https://twitter.com/AgnesiBlanche" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#1da1f2,#1a8cd8);color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.1)">
+            𝕏 X (Twitter)
+          </a>
+          <a href="https://www.instagram.com/AgnesiBlanche" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#fd5949,#d6249f,#285AEB);color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.1)">
+            📷 Instagram
+          </a>
+        </div>
+      </div>
+
+      <!-- MAPA incrustado de Tehuacán, Puebla -->
+      <div style="max-width:1200px;margin:18px auto;border-radius:12px;overflow:hidden;box-shadow:var(--soft-shadow)">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.0296402533!2d-97.394906!3d18.459972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c54a0f0e91c0d5%3A0x7f7904f89dfc25b2!2sTehuac%C3%A1n%2C%20Pue.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx"
+          width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOBRE (metáfora + rúbrica) ========== -->
+  <section id="sobre" class="page">
+    <div class="container">
+      <h3 class="section-title">Sobre Agnesi Blanche</h3>
+      <p style="text-align:center;max-width:900px;margin:0 auto 18px">Agnesi Blanche nace de la pasión por las perlas cultivadas y el trabajo artesanal. Nuestro objetivo es ofrecer piezas con historia y elegancia atemporal.</p>
+
+      <!-- METÁFORA (tal como pediste originalmente) -->
+      <div style="max-width:900px;margin:14px auto;background:#fff;padding:18px;border-radius:10px;border:1px solid rgba(122,91,59,0.06);box-shadow:var(--soft-shadow)">
+        <h4 style="font-family:'Cinzel',serif;margin-top:0">Metáfora</h4>
+        <p style="margin:0">Como una perla que se forma en silencio, nuestras piezas nacen del tiempo, la paciencia y el mimo; pequeñas historias encapsuladas en brillo, listos para acompañar momentos que perduran.</p>
+      </div>
+
+      <!-- RÚBRICA / CRITERIOS (resumen) -->
+      <div style="max-width:900px;margin:14px auto">
+        <h4 style="font-family:'Cinzel',serif;margin-top:0;text-align:center;color:var(--dorado);font-size:22px">✨ Nuestros Valores</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
+          <div style="background:linear-gradient(135deg,rgba(191,164,124,0.1),rgba(191,164,124,0.05));padding:16px;border-radius:10px;border-left:4px solid var(--dorado)">
+            <h5 style="font-family:'Cinzel',serif;color:var(--marron);margin:0 0 8px">💎 Calidad Premium</h5>
+            <p style="margin:0;font-size:14px;color:#666">Cada perla es cuidadosamente seleccionada y revisada para garantizar brillo, tamaño y forma excepcionales.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(191,164,124,0.1),rgba(191,164,124,0.05));padding:16px;border-radius:10px;border-left:4px solid var(--dorado)">
+            <h5 style="font-family:'Cinzel',serif;color:var(--marron);margin:0 0 8px">🎨 Diseño Exclusivo</h5>
+            <p style="margin:0;font-size:14px;color:#666">Creaciones únicas que fusionan tradición artesanal con estética contemporánea y elegancia atemporal.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(191,164,124,0.1),rgba(191,164,124,0.05));padding:16px;border-radius:10px;border-left:4px solid var(--dorado)">
+            <h5 style="font-family:'Cinzel',serif;color:var(--marron);margin:0 0 8px">🌍 Sostenibilidad</h5>
+            <p style="margin:0;font-size:14px;color:#666">Comprometidos con prácticas éticas en la obtención de perlas cultivadas y materiales responsables.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(191,164,124,0.1),rgba(191,164,124,0.05));padding:16px;border-radius:10px;border-left:4px solid var(--dorado)">
+            <h5 style="font-family:'Cinzel',serif;color:var(--marron);margin:0 0 8px">💝 Experiencia al Cliente</h5>
+            <p style="margin:0;font-size:14px;color:#666">Atención personalizada, empaque premium y garantía de satisfacción en cada compra.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PANEL DE CARRITO (oculto por defecto) ========== -->
+  <div id="cartPanel" class="cart-panel" aria-hidden="true">
+    <h4>Tu carrito</h4>
+    <div id="cartItemsContainer"></div>
+    <div class="cart-footer">
+      <div><strong>Total:</strong> $<span id="cartTotal">0.00</span></div>
+      <div><button class="btn" onclick="checkout()">Pagar</button></div>
+    </div>
+  </div>
+
+  <!-- ========== CHATBOT (toggle) ========== -->
+  <button class="chat-toggle" id="chatToggleBtn" aria-label="Abrir chat">💬</button>
+  <div class="chat-window" id="chatWindow" role="dialog" aria-label="Chat AgnesiBot">
+    <div class="chat-header">AgnesiBot · Asistente</div>
+    <div class="chat-body" id="chatBody">
+      <div style="background:#f3efe9;padding:8px;border-radius:8px;margin-bottom:8px"><strong>AgnesiBot:</strong> ¡Hola! Soy AgnesiBot. Puedo ayudar con productos, precios y cuidados de perlas.</div>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Escribe tu pregunta..." aria-label="Escribir mensaje al chatbot" />
+      <button id="chatSendBtn">Enviar</button>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      © 2025 Agnesi Blanche · Perlas Cultivadas Excepcionales
+    </div>
+  </footer>
+
+<!-- ================== SCRIPTS: PRODUCTS, CAROUSEL, CART, CHATBOT ================== -->
+<script>
+/* ===================== DATOS DE PRODUCTOS (los tuyos, completos) ===================== */
+const PRODUCTS = [
+  { id:1, title:'Anillos', category:'Anillos', price:1250, img:'D:\\proyect finalrobert\\anillo1.webp' },
+  { id:2, title:'Collares', category:'Collares', price:2850, img:'D:\\proyect finalrobert\\collar1.webp' },
+  { id:3, title:'Pendientes', category:'Pendientes', price:1680, img:'D:\\proyect finalrobert\\arete1.webp' },
+  { id:4, title:'Accesorios', category:'Accesorios', price:950, img:'D:\\proyect finalrobert\\acces1.webp' },
+  { id:5, title:'Perlas Sueltas', category:'Accesorios', price:1450, img:'D:\\proyect finalrobert\\perlas.webp' },
+  { id:6, title:'Colección Dorada', category:'Collares', price:3200, img:'D:\\proyect finalrobert\\collar2.webp' },
+  { id:7, title:'Colección Plata', category:'Collares', price:2990, img:'D:\\proyect finalrobert\\collar3.webp' },
+  { id:8, title:'Temporada Vintage', category:'Anillos', price:3850, img:'D:\\proyect finalrobert\\anillo2.jpg' },
+  { id:9, title:'Edición Limitada', category:'Anillos', price:4500, img:'D:\\proyect finalrobert\\anillo3.webp' },
+  { id:10, title:'Anillo de Perla Solitaria', category:'Anillos', price:1850, img:'D:\\proyect finalrobert\\anillo4.jpg' },
+  { id:11, title:'Aretes Gota de Perla', category:'Pendientes', price:1650, img:'D:\\proyect finalrobert\\arete2.webp' },
+  { id:12, title:'Pulsera de Perlas Doradas', category:'Pulseras', price:1950, img:'D:\\proyect finalrobert\\pul5.webp' },
+  { id:13, title:'Anillo Dorado con Perla Akoya', category:'Anillos', price:2200, img:'D:\\proyect finalrobert\\anillo5.webp' },
+  { id:14, title:'Collar Doble Hilo', category:'Collares', price:3250, img:'D:\\proyect finalrobert\\collar4.webp' },
+  { id:15, title:'Aretes Perla y Oro Blanco', category:'Pendientes', price:2150, img:'D:\\proyect finalrobert\\arete3.webp' },
+  { id:16, title:'Pulsera Plata y Perla', category:'Pulseras', price:1750, img:'D:\\proyect finalrobert\\pul2.webp' },
+  { id:17, title:'Anillo Vintage Perlado', category:'Anillos', price:2400, img:'D:\\proyect finalrobert\\anillo6.webp' },
+  { id:18, title:'Aretes Elegancia Real', category:'Pendientes', price:1690, img:'D:\\proyect finalrobert\\arete4.webp' },
+  { id:19, title:'Pulsera Edición Deluxe', category:'Pulseras', price:2550, img:'D:\\proyect finalrobert\\pul3.webp' },
+  { id:20, title:'Set Perlas del Mar', category:'Accesorios', price:3800, img:'D:\\proyect finalrobert\\set.webp' }
+];
+
+/* ============== STATE ============== */
+let filtered = [...PRODUCTS];
+const perPage = 6;
+let currentPage = 1;
+let cart = [];
+
+/* ============== RENDER PRODUCTS ============== */
+function renderProducts(){
+  const grid = document.getElementById('productsGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  const start = (currentPage-1)*perPage;
+  const pageItems = filtered.slice(start, start+perPage);
+
+  pageItems.forEach(p=>{
+    const el = document.createElement('div');
+    el.className = 'product';
+    el.setAttribute('role','listitem');
+    el.innerHTML = `
+      <img src="${p.img}" alt="${p.title}">
+      <h4>${p.title}</h4>
+      <p class="price">$${p.price.toFixed(2)}</p>
+      <div class="actions">
+        <button class="btn secondary" onclick="viewDetails(${p.id})">Ver</button>
+        <button class="btn" onclick="addToCart(${p.id})">Agregar</button>
+      </div>`;
+    grid.appendChild(el);
+  });
+
+  renderPagination();
+}
+
+/* ============== PAGINATION ============== */
+function renderPagination(){
+  const pag = document.getElementById('pagination');
+  if(!pag) return;
+  pag.innerHTML = '';
+  const totalPages = Math.ceil(filtered.length/perPage) || 1;
+  for(let i=1;i<=totalPages;i++){
+    const b = document.createElement('button');
+    b.textContent = i;
+    b.style.padding = '8px 10px';
+    b.style.borderRadius = '8px';
+    b.style.border = i===currentPage ? '2px solid var(--marron)' : '1px solid rgba(0,0,0,0.06)';
+    b.onclick = ()=>{ currentPage = i; renderProducts(); window.scrollTo({top:document.getElementById('catalogo').offsetTop-80, behavior:'smooth'});};
+    pag.appendChild(b);
+  }
+}
+
+/* ============== FILTER & SEARCH ============== */
+function filterCategory(cat){
+  currentPage = 1;
+  if(cat==='all'){ filtered = [...PRODUCTS]; }
+  else { filtered = PRODUCTS.filter(p=>p.category===cat); }
+  renderProducts();
+}
+
+const searchEl = document.getElementById('searchInput');
+if(searchEl){
+  searchEl.addEventListener('input', (e)=>{
+    const q = e.target.value.trim().toLowerCase();
+    currentPage = 1;
+    filtered = PRODUCTS.filter(p => (p.title.toLowerCase().includes(q) || String(p.price).includes(q)));
+    renderProducts();
+  });
+}
+
+/* ============== VIEW / CART ACTIONS ============== */
+function viewDetails(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  alert(`${p.title}\nPrecio: $${p.price}\nCategoría: ${p.category}`);
+}
+
+function addToCart(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  cart.push(Object.assign({},p));
+  updateCartUI();
+  // micro-animación de confirmación
+  const notif = document.createElement('div');
+  notif.textContent = `${p.title} agregado al carrito.`;
+  notif.style.position='fixed';notif.style.left='50%';notif.style.top='18%';notif.style.transform='translateX(-50%)';notif.style.background='rgba(0,0,0,0.75)';notif.style.color='#fff';notif.style.padding='10px 16px';notif.style.borderRadius='8px';notif.style.zIndex=2000;
+  document.body.appendChild(notif); setTimeout(()=>notif.remove(),1600);
+}
+
+/* ============== CART UI ============== */
+function updateCartUI(){
+  const cartCount = document.getElementById('cartCount');
+  if(cartCount) cartCount.innerText = cart.length;
+  const container = document.getElementById('cartItemsContainer');
+  if(!container) return;
+  container.innerHTML = '';
+  let total = 0;
+  cart.forEach((c,i)=>{
+    total += c.price;
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `<img src="${c.img}" alt=""><div style="min-width:140px"><strong>${c.title}</strong><div>$${c.price.toFixed(2)}</div></div>
+      <div style="margin-left:auto"><button onclick="removeFromCart(${i})" class="btn secondary">Eliminar</button></div>`;
+    container.appendChild(div);
+  });
+  const cartTotal = document.getElementById('cartTotal');
+  if(cartTotal) cartTotal.innerText = total.toFixed(2);
+}
+
+function removeFromCart(i){
+  cart.splice(i,1); updateCartUI();
+}
+
+const cartToggleBtn = document.getElementById('cartToggle');
+if(cartToggleBtn){
+  cartToggleBtn.addEventListener('click', ()=>{
+    const panel = document.getElementById('cartPanel');
+    if(!panel) return;
+    panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+    panel.setAttribute('aria-hidden', panel.style.display === 'block' ? 'false' : 'true');
+  });
+}
+
+/* ============== CHECKOUT ============== */
+function checkout(){
+  if(cart.length===0){ alert('Tu carrito está vacío.'); return; }
+  alert('Gracias por tu compra por $' + (document.getElementById('cartTotal') ? document.getElementById('cartTotal').innerText : '0.00') + ' MXN. (Simulado)');
+  cart = []; updateCartUI();
+  const panel = document.getElementById('cartPanel');
+  if(panel) panel.style.display = 'none';
+}
+
+/* ============== CAROUSEL ============== */
+let slideIndex = 0;
+const slidesEl = document.getElementById('slides');
+let totalSlides = 0;
+const indicators = document.getElementById('indicators');
+
+if(slidesEl && indicators){
+  totalSlides = slidesEl.children.length;
+  function renderIndicators(){
+    indicators.innerHTML = '';
+    for(let i=0;i<totalSlides;i++){
+      const b = document.createElement('button');
+      b.onclick = ()=>{ slideIndex = i; updateCarousel(); };
+      if(i===0) b.classList.add('active');
+      indicators.appendChild(b);
+    }
+  }
+  function updateCarousel(){
+    slidesEl.style.transform = `translateX(-${slideIndex*100}%)`;
+    Array.from(indicators.children).forEach((btn, idx)=> btn.classList.toggle('active', idx===slideIndex));
+    const video = document.getElementById('promoVideo');
+    const activeIsVideo = slidesEl.children[slideIndex] && slidesEl.children[slideIndex].querySelector('video') !== null;
+    if(activeIsVideo && video){ try{ video.play(); }catch(e){} }
+    else if(video){ try{ video.pause(); video.currentTime = 0;}catch(e){} }
+  }
+
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  if(prevBtn) prevBtn.addEventListener('click', ()=>{ slideIndex = (slideIndex-1+totalSlides)%totalSlides; updateCarousel(); });
+  if(nextBtn) nextBtn.addEventListener('click', ()=>{ slideIndex = (slideIndex+1)%totalSlides; updateCarousel(); });
+  renderIndicators();
+  updateCarousel();
+  const autoSlide = setInterval(()=>{ slideIndex = (slideIndex+1)%totalSlides; updateCarousel(); },5000);
+} else {
+  // Si no hay slides o indicadores, ocultar botones para evitar UI confusa
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  if(prevBtn) prevBtn.style.display = 'none';
+  if(nextBtn) nextBtn.style.display = 'none';
+  if(indicators) indicators.style.display = 'none';
+}
+
+/* ============== CHATBOT (local) ============== */
+const chatToggleBtn = document.getElementById('chatToggleBtn');
+const chatWindow = document.getElementById('chatWindow');
+const chatBody = document.getElementById('chatBody');
+const chatInput = document.getElementById('chatInput');
+const chatSendBtn = document.getElementById('chatSendBtn');
+
+if(chatToggleBtn && chatWindow){
+  chatToggleBtn.addEventListener('click', ()=>{
+    chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+    if(chatWindow.style.display === 'flex'){
+      // focus al input cuando se abre
+      setTimeout(()=>{ if(chatInput) chatInput.focus(); },80);
+    }
+  });
+}
+
+function appendChatBubble(who, text){
+  const d = document.createElement('div');
+  d.style.marginBottom = '8px';
+  if(who === 'Tú'){
+    d.style.background = '#e8dcc6';
+    d.style.padding = '8px';
+    d.style.borderRadius = '8px';
+    d.style.textAlign = 'right';
+    d.innerHTML = `<strong>${who}:</strong> ${escapeHtml(text)}`;
+  } else {
+    d.style.background = '#f3efe9';
+    d.style.padding = '8px';
+    d.style.borderRadius = '8px';
+    d.innerHTML = `<strong>${who}:</strong> ${escapeHtml(text)}`;
+  }
+  chatBody.appendChild(d);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// Pequeña función para evitar inyección accidental
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+}
+
+function sendChat(){
+  if(!chatInput) return;
+  const text = chatInput.value.trim();
+  if(!text) return;
+  appendChatBubble('Tú', text);
+  chatInput.value = '';
+  // mostrar 'escribiendo...' indicativo
+  const typing = document.createElement('div');
+  typing.style.marginBottom = '8px';
+  typing.style.background = '#f3efe9';
+  typing.style.padding = '8px';
+  typing.style.borderRadius = '8px';
+  typing.innerHTML = `<strong>AgnesiBot:</strong> Escribiendo…`;
+  chatBody.appendChild(typing);
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+  setTimeout(()=>{
+    if(typing && typing.parentNode) typing.remove();
+    const resp = generateBotReply(text);
+    appendChatBubble('AgnesiBot', resp);
+  }, 600);
+}
+
+if(chatSendBtn){
+  chatSendBtn.addEventListener('click', sendChat);
+}
+if(chatInput){
+  chatInput.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter' && !e.shiftKey){
+      e.preventDefault();
+      sendChat();
+    }
+  });
+}
+
+function generateBotReply(q){
+  q = String(q || '').toLowerCase();
+  if(q.includes('hola')||q.includes('buenas')) return '¡Hola! Soy AgnesiBot 💎. Puedo ayudarte a elegir piezas, explicar el cuidado de perlas o asistirte en el proceso de compra.';
+  if(q.includes('precio')||q.includes('cuánto')||q.includes('cost')) return 'Los precios varían entre $950 MXN y $4,500 MXN. ¿Qué categoría te interesa?';
+  if(q.includes('envío')||q.includes('entrega')||q.includes('envio')) return 'Procesamos pedidos en 1-3 días hábiles. ¿En qué ciudad estás?';
+  if(q.includes('limpiar')||q.includes('cuidado')||q.includes('cómo cuidar')) return 'Para cuidar perlas: evita perfumes, límpialas con paño suave y guárdalas separadas.';
+  if(q.includes('recomienda')||q.includes('recomendación')||q.includes('recomendar')) return 'Si buscas algo diario, te recomiendo los aretes sencillos; para regalo, el set Perlas del Mar.';
+  if(q.includes('catalogo')||q.includes('catálogo')||q.includes('catalogo')) return 'Puedes ver nuestro catálogo en la sección "Catálogo Exclusivo" — usa filtros o busca por nombre/precio.';
+  return 'Lo siento, no entendí bien — ¿puedes especificar más o preguntar por precios, envíos, cuidados o productos?';
+}
+
+/* ============== PROMO PLAYER CONTROL (extra) ============== */
+const promoPlayer = document.getElementById('promoPlayer');
+// ejemplo para autoplay si lo deseas (descomenta si quieres autoplay sin sonido):
+// if(promoPlayer){ promoPlayer.muted = true; promoPlayer.play().catch(()=>{}); }
+
+/* ============== MANAGEMENT SECTIONS (CLIENTES, PROVEEDORES, AGENTES, COMPRAS) ============== */
+let clients = JSON.parse(localStorage.getItem('clients')) || [
+  {id:1, name:'María García', email:'maria@gmail.com', phone:'5551234567', address:'Calle Principal 123', city:'CDMX', status:'Activo'},
+  {id:2, name:'Carlos López', email:'carlos@gmail.com', phone:'5559876543', address:'Avenida Central 456', city:'Guadalajara', status:'Activo'},
+  {id:3, name:'Sofía Martínez', email:'sofia@gmail.com', phone:'5555555555', address:'Boulevard Sur 789', city:'Monterrey', status:'Inactivo'}
+];
+
+let suppliers = JSON.parse(localStorage.getItem('suppliers')) || [
+  {id:1, name:'Perlas del Mar S.A.', email:'ventas@perlasdelmar.mx', phone:'5551111111', product:'Perlas cultivadas', rating:5},
+  {id:2, name:'Joyería Premium Ltd.', email:'contacto@joyeriapremium.mx', phone:'5552222222', product:'Metales preciosos', rating:4},
+  {id:3, name:'Diseños Artesanales Co.', email:'info@disenosartesanales.mx', phone:'5553333333', product:'Accesorios', rating:4.5}
+];
+
+let agents = JSON.parse(localStorage.getItem('agents')) || [
+  {id:1, name:'Roberto Silva', email:'roberto@agnesiblanche.mx', phone:'5554444444', commission:8, zone:'Norte', salesMonth:45000},
+  {id:2, name:'Andrea Ruiz', email:'andrea@agnesiblanche.mx', phone:'5555555555', commission:10, zone:'Centro', salesMonth:62000},
+  {id:3, name:'Diego Morales', email:'diego@agnesiblanche.mx', phone:'5556666666', commission:7, zone:'Sur', salesMonth:38000}
+];
+
+let purchases = JSON.parse(localStorage.getItem('purchases')) || [
+  {id:1, provider:'Perlas del Mar S.A.', product:'Perla Akoya Premium', quantity:50, price:120, total:6000, date:'2025-11-15'},
+  {id:2, provider:'Joyería Premium Ltd.', product:'Oro blanco 18K', quantity:100, price:85, total:8500, date:'2025-11-10'},
+  {id:3, provider:'Diseños Artesanales Co.', product:'Cadenas plata', quantity:200, price:45, total:9000, date:'2025-11-05'}
+];
+
+// CLIENTES
+function addClient(){
+  const name = document.getElementById('clientName')?.value || '';
+  const email = document.getElementById('clientEmail')?.value || '';
+  const phone = document.getElementById('clientPhone')?.value || '';
+  const address = document.getElementById('clientAddress')?.value || '';
+  const city = document.getElementById('clientCity')?.value || '';
+  if(!name || !email) { alert('Nombre y email son requeridos'); return; }
+  const newClient = { id: Date.now(), name, email, phone, address, city, status: 'Activo' };
+  clients.push(newClient);
+  localStorage.setItem('clients', JSON.stringify(clients));
+  document.getElementById('clientName').value = '';
+  document.getElementById('clientEmail').value = '';
+  document.getElementById('clientPhone').value = '';
+  document.getElementById('clientAddress').value = '';
+  document.getElementById('clientCity').value = '';
+  renderClients();
+  alert('Cliente agregado exitosamente');
+}
+
+function renderClients(){
+  const tbody = document.getElementById('clientTableBody');
+  if(!tbody) return;
+  if(clients.length === 0){
+    tbody.innerHTML = '<tr><td colspan="6" style="padding:20px;text-align:center;color:#999">No hay clientes registrados</td></tr>';
+  } else {
+    tbody.innerHTML = clients.map(c => `
+      <tr style="border-bottom:1px solid rgba(0,0,0,0.05)">
+        <td style="padding:10px">${c.name}</td>
+        <td style="padding:10px">${c.email}</td>
+        <td style="padding:10px">${c.phone}</td>
+        <td style="padding:10px">${c.city}</td>
+        <td style="padding:10px"><span style="background:${c.status==='Activo'?'#d4edda':'#f8d7da'};padding:4px 8px;border-radius:4px;font-size:12px">${c.status}</span></td>
+        <td style="padding:10px;text-align:center"><button onclick="deleteClient(${c.id})" style="background:#dc3545;color:#fff;border:0;padding:5px 10px;border-radius:4px;cursor:pointer">Eliminar</button></td>
+      </tr>
+    `).join('');
+  }
+  document.getElementById('totalClients').textContent = clients.length;
+  document.getElementById('activeClients').textContent = clients.filter(c=>c.status==='Activo').length;
+  document.getElementById('inactiveClients').textContent = clients.filter(c=>c.status==='Inactivo').length;
+}
+
+function deleteClient(id){
+  if(confirm('¿Eliminar cliente?')){
+    clients = clients.filter(c=>c.id !== id);
+    localStorage.setItem('clients', JSON.stringify(clients));
+    renderClients();
+  }
+}
+
+// PROVEEDORES
+function addSupplier(){
+  const name = document.getElementById('supplierName')?.value || '';
+  const email = document.getElementById('supplierEmail')?.value || '';
+  const phone = document.getElementById('supplierPhone')?.value || '';
+  const product = document.getElementById('supplierProduct')?.value || '';
+  const rating = parseFloat(document.getElementById('supplierRating')?.value) || 0;
+  if(!name || !email) { alert('Nombre y email requeridos'); return; }
+  const newSupplier = { id: Date.now(), name, email, phone, product, rating };
+  suppliers.push(newSupplier);
+  localStorage.setItem('suppliers', JSON.stringify(suppliers));
+  document.getElementById('supplierName').value = '';
+  document.getElementById('supplierEmail').value = '';
+  document.getElementById('supplierPhone').value = '';
+  document.getElementById('supplierProduct').value = '';
+  document.getElementById('supplierRating').value = '';
+  renderSuppliers();
+  alert('Proveedor agregado exitosamente');
+}
+
+function renderSuppliers(){
+  const tbody = document.getElementById('supplierTableBody');
+  if(!tbody) return;
+  if(suppliers.length === 0){
+    tbody.innerHTML = '<tr><td colspan="5" style="padding:20px;text-align:center;color:#999">No hay proveedores registrados</td></tr>';
+  } else {
+    tbody.innerHTML = suppliers.map(s => `
+      <tr style="border-bottom:1px solid rgba(0,0,0,0.05)">
+        <td style="padding:10px">${s.name}</td>
+        <td style="padding:10px">${s.email}</td>
+        <td style="padding:10px">${s.product}</td>
+        <td style="padding:10px;text-align:center">${'⭐'.repeat(Math.floor(s.rating))} ${s.rating}</td>
+        <td style="padding:10px;text-align:center"><button onclick="deleteSupplier(${s.id})" style="background:#dc3545;color:#fff;border:0;padding:5px 10px;border-radius:4px;cursor:pointer">Eliminar</button></td>
+      </tr>
+    `).join('');
+  }
+  document.getElementById('totalSuppliers').textContent = suppliers.length;
+  const avgRating = suppliers.length > 0 ? (suppliers.reduce((sum,s)=>sum+s.rating,0)/suppliers.length).toFixed(1) : 0;
+  document.getElementById('avgSupplierRating').textContent = avgRating;
+}
+
+function deleteSupplier(id){
+  if(confirm('¿Eliminar proveedor?')){
+    suppliers = suppliers.filter(s=>s.id !== id);
+    localStorage.setItem('suppliers', JSON.stringify(suppliers));
+    renderSuppliers();
+  }
+}
+
+// AGENTES
+function addAgent(){
+  const name = document.getElementById('agentName')?.value || '';
+  const email = document.getElementById('agentEmail')?.value || '';
+  const phone = document.getElementById('agentPhone')?.value || '';
+  const commission = parseFloat(document.getElementById('agentCommission')?.value) || 0;
+  const zone = document.getElementById('agentZone')?.value || '';
+  if(!name || !email) { alert('Nombre y email requeridos'); return; }
+  const newAgent = { id: Date.now(), name, email, phone, commission, zone, salesMonth: 0 };
+  agents.push(newAgent);
+  localStorage.setItem('agents', JSON.stringify(agents));
+  document.getElementById('agentName').value = '';
+  document.getElementById('agentEmail').value = '';
+  document.getElementById('agentPhone').value = '';
+  document.getElementById('agentCommission').value = '';
+  document.getElementById('agentZone').value = '';
+  renderAgents();
+  alert('Agente agregado exitosamente');
+}
+
+function renderAgents(){
+  const tbody = document.getElementById('agentTableBody');
+  if(!tbody) return;
+  if(agents.length === 0){
+    tbody.innerHTML = '<tr><td colspan="6" style="padding:20px;text-align:center;color:#999">No hay agentes registrados</td></tr>';
+  } else {
+    tbody.innerHTML = agents.map(a => `
+      <tr style="border-bottom:1px solid rgba(0,0,0,0.05)">
+        <td style="padding:10px">${a.name}</td>
+        <td style="padding:10px">${a.email}</td>
+        <td style="padding:10px">${a.zone}</td>
+        <td style="padding:10px;text-align:center"><strong>${a.commission}%</strong></td>
+        <td style="padding:10px;text-align:center">$${a.salesMonth.toLocaleString()}</td>
+        <td style="padding:10px;text-align:center"><button onclick="deleteAgent(${a.id})" style="background:#dc3545;color:#fff;border:0;padding:5px 10px;border-radius:4px;cursor:pointer">Eliminar</button></td>
+      </tr>
+    `).join('');
+  }
+  document.getElementById('totalAgents').textContent = agents.length;
+  const avgComm = agents.length > 0 ? (agents.reduce((sum,a)=>sum+a.commission,0)/agents.length).toFixed(1) : 0;
+  document.getElementById('avgCommission').textContent = avgComm;
+  const topAgent = agents.length > 0 ? agents.reduce((prev,curr)=>curr.salesMonth>prev.salesMonth?curr:prev) : null;
+  document.getElementById('topAgent').textContent = topAgent ? topAgent.name : '-';
+}
+
+function deleteAgent(id){
+  if(confirm('¿Eliminar agente?')){
+    agents = agents.filter(a=>a.id !== id);
+    localStorage.setItem('agents', JSON.stringify(agents));
+    renderAgents();
+  }
+}
+
+// COMPRAS
+function addPurchase(){
+  const provider = document.getElementById('purchaseProvider')?.value || '';
+  const product = document.getElementById('purchaseProduct')?.value || '';
+  const quantity = parseInt(document.getElementById('purchaseQuantity')?.value) || 0;
+  const price = parseFloat(document.getElementById('purchasePrice')?.value) || 0;
+  const date = document.getElementById('purchaseDate')?.value || '';
+  if(!provider || !product || quantity<=0 || price<=0 || !date) { alert('Complete todos los campos correctamente'); return; }
+  const newPurchase = { id: Date.now(), provider, product, quantity, price, total: quantity*price, date };
+  purchases.push(newPurchase);
+  localStorage.setItem('purchases', JSON.stringify(purchases));
+  document.getElementById('purchaseProvider').value = '';
+  document.getElementById('purchaseProduct').value = '';
+  document.getElementById('purchaseQuantity').value = '';
+  document.getElementById('purchasePrice').value = '';
+  document.getElementById('purchaseDate').value = '';
+  renderPurchases();
+  alert('Compra registrada exitosamente');
+}
+
+function renderPurchases(){
+  const tbody = document.getElementById('purchaseTableBody');
+  if(!tbody) return;
+  if(purchases.length === 0){
+    tbody.innerHTML = '<tr><td colspan="7" style="padding:20px;text-align:center;color:#999">No hay compras registradas</td></tr>';
+  } else {
+    tbody.innerHTML = purchases.map(p => `
+      <tr style="border-bottom:1px solid rgba(0,0,0,0.05)">
+        <td style="padding:10px">${p.provider}</td>
+        <td style="padding:10px">${p.product}</td>
+        <td style="padding:10px;text-align:center">${p.quantity}</td>
+        <td style="padding:10px;text-align:right">$${p.price.toFixed(2)}</td>
+        <td style="padding:10px;text-align:right"><strong>$${p.total.toLocaleString()}</strong></td>
+        <td style="padding:10px">${p.date}</td>
+        <td style="padding:10px;text-align:center"><button onclick="deletePurchase(${p.id})" style="background:#dc3545;color:#fff;border:0;padding:5px 10px;border-radius:4px;cursor:pointer">Eliminar</button></td>
+      </tr>
+    `).join('');
+  }
+  const totalPurch = purchases.length;
+  const totalSpent = purchases.reduce((sum,p)=>sum+p.total,0);
+  const totalStockUnits = purchases.reduce((sum,p)=>sum+p.quantity,0);
+  document.getElementById('totalPurchases').textContent = totalPurch;
+  document.getElementById('totalSpent').textContent = '$' + totalSpent.toLocaleString();
+  document.getElementById('totalStock').textContent = totalStockUnits + ' unidades';
+  const topSupplier = purchases.length > 0 ? purchases.reduce((prev,curr)=>(purchases.filter(p=>p.provider===curr.provider).length > purchases.filter(p=>p.provider===prev.provider).length)?curr:prev).provider : '-';
+  document.getElementById('topSupplier').textContent = topSupplier;
+}
+
+function deletePurchase(id){
+  if(confirm('¿Eliminar compra?')){
+    purchases = purchases.filter(p=>p.id !== id);
+    localStorage.setItem('purchases', JSON.stringify(purchases));
+    renderPurchases();
+  }
+}
+
+/* ============== ON LOAD ============== */
+window.addEventListener('load', ()=>{
+  // render product grid y UI de carrito
+  try{ renderProducts(); }catch(e){}
+  try{ updateCartUI(); }catch(e){}
+  // render management sections
+  try{ renderClients(); }catch(e){}
+  try{ renderSuppliers(); }catch(e){}
+  try{ renderAgents(); }catch(e){}
+  try{ renderPurchases(); }catch(e){}
+});
+</script>
+
+</body>
+</html>
